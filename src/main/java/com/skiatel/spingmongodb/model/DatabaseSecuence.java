@@ -1,4 +1,4 @@
-package net.guides.springboot.crud.model;
+package com.skiatel.spingmongodb.model;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
