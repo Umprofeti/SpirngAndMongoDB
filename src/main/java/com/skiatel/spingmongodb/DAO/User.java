@@ -7,16 +7,12 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import org.springframework.data.annotation.Transient;
-
 @Document(collection = "users")
 public class User {
 
-    @Transient
-    public static final String SEQUENCE_NAME = "users_sequence";
 
     @Id
-    private Long id;
+    private String id;
 
     @NotBlank
     @Size(max = 100)
@@ -40,20 +36,13 @@ public class User {
         this.email = email;
     }
 
-    public User(Long id, String name, String email) {
-        this.id = id;
-        this.name = name;
-        this.email = email;
-    }
-
-    public User(Long id, String name, String email, String password) {
-        this.id = id;
+    public User(String name, String email, String password) {
         this.name = name;
         this.email = email;
         this.password = password;
     }
 
-    public Long getId() {
+    public String getId() {
         return id;
     }
 
@@ -67,5 +56,17 @@ public class User {
 
     public String getPassword() {
         return password;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 }
